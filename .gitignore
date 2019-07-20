@@ -1,0 +1,49 @@
+# Created by https://www.gitignore.io/api/windows
+# Edit at https://www.gitignore.io/?templates=windows
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.gitignore.io/api/windows
+*.vcxproj
+*.filters
+*.log
+*.lastbuildstate
+*.tlog
+*.obj
+*.idb
+*.pdb
+BinarInsertSort/.vs/BinarInsertSort/v15/.suo
+*.db
+*.opendb
+*.ipch
+*.sln
+*.exe
+*.ilk
+QuickSortHoare/.vs/QuickSortHoare/v15/.suo
+LinkedList/.vs/LinkedList/v15/.suo
+fromLowerToUpper/.vs/fromLowerToUpper/v15/.suo
+Copy/.vs/Copy/v15/.suo
