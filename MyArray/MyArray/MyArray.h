@@ -21,6 +21,7 @@ public:
 		return !(*this == other);
 	}
 	MyArray operator+(const MyArray &other);
+	MyArray operator-(const MyArray &other);
 
 	int &operator[] (int);
 	int operator[] (int) const;
