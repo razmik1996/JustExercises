@@ -20,6 +20,7 @@ public:
 	bool operator!=(const MyArray &other) const {
 		return !(*this == other);
 	}
+	MyArray operator+(const MyArray &other);
 
 	int &operator[] (int);
 	int operator[] (int) const;

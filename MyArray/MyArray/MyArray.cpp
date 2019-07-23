@@ -69,6 +69,25 @@ bool MyArray::operator==(const MyArray &right) const
 	return true;
 }
 
+MyArray MyArray::operator+(const MyArray & other)
+{
+	int newSize = size + other.size;
+	
+	int *newPtr = new int[newSize];
+	for (int i = 0; i < newSize; i++) {
+		if (i < size) {
+			newPtr[i] = ptr[i];
+		}
+		else {
+			newPtr[i] = other[i - size];
+		}
+	}
+	delete[] ptr;
+	ptr = newPtr;
+	size = newSize;
+	return *this;
+}
+
 int & MyArray::operator[](int index)
 {
 	if (index < 0 || index > size) {
@@ -104,3 +123,4 @@ std::istream & operator>>(std::istream & is, MyArray &arrayForInput)
 	}
 	return is;
 }
+
