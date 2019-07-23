@@ -88,6 +88,40 @@ MyArray MyArray::operator+(const MyArray & other)
 	return *this;
 }
 
+MyArray MyArray::operator-(const MyArray & other)
+{
+	int endElement = size - 1;
+	int counter = 0;
+
+	for (int i = 0; i <= endElement;) {
+		for (int j = 0; j < other.size; j++) {
+			if (ptr[i] == other.ptr[j]) {
+				int temp = ptr[i];
+				ptr[i] = ptr[endElement];
+				ptr[endElement] = temp;
+				endElement--;
+				counter++;
+				break;
+			}
+			else {
+				if (j == other.size - 1) {
+					i++;
+					continue;
+				}
+				continue;
+			}
+		}
+	}
+	int *newPtr = new int(size - counter);
+	for (int i = 0; i < size - counter; i++) {
+		newPtr[i] = ptr[i];
+	}
+	delete[] ptr;
+	ptr = newPtr;
+	size = size - counter;
+	return *this;
+}
+
 int & MyArray::operator[](int index)
 {
 	if (index < 0 || index > size) {
