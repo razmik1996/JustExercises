@@ -4,7 +4,7 @@
 int main()
 {
 	MyArray integers1(6);
-	MyArray integers2(3);
+	MyArray integers2(8);
 
 	std::cout << "Sizof integers 1 is: " << integers1.getSize() << std::endl;
 	std::cout << "Sizof integers 2 is: " << integers2.getSize() << std::endl;

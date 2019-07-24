@@ -88,41 +88,67 @@ MyArray MyArray::operator+(const MyArray & other)
 	return *this;
 }
 
-MyArray MyArray::operator-(const MyArray & other)
-{
-	int endElement = size - 1;
-	int counter = 0;
+//MyArray MyArray::operator-(const MyArray & other)
+//{
+//	int endElement = size - 1;
+//
+//	for (int i = 0; i < endElement;) {
+//		for (int j = 0; j < other.size; j++) {
+//			if (ptr[i] == other.ptr[j]) {
+//				int temp = ptr[i];
+//				ptr[i] = ptr[endElement];
+//				ptr[endElement] = temp;
+//				endElement--;
+//				break;
+//			}
+//			else {
+//				if (j == other.size - 1) {
+//					i++;
+//					continue;
+//				}
+//				continue;
+//			}
+//		}
+//	}
+//	int *newPtr = new int(endElement);
+//	for (int i = 0; i < endElement; i++) {
+//		newPtr[i] = ptr[i];
+//	}
+//	delete[] ptr;
+//	ptr = newPtr;
+//	size = endElement;
+//	return *this;
+//}
+MyArray MyArray::operator-(const MyArray & other) {
+	int newSize = 0;
 
-	for (int i = 0; i <= endElement;) {
+	for (int i = 0; i < size; i++) {
 		for (int j = 0; j < other.size; j++) {
-			if (ptr[i] == other.ptr[j]) {
-				int temp = ptr[i];
-				ptr[i] = ptr[endElement];
-				ptr[endElement] = temp;
-				endElement--;
-				counter++;
-				break;
+			if (ptr[i] != other.ptr[j]) {
+				if (j == other.size - 1) {
+					ptr[newSize] = ptr[i];
+					newSize++;
+					break;
+				}
 			}
 			else {
-				if (j == other.size - 1) {
-					i++;
-					continue;
-				}
-				continue;
+				break;
 			}
 		}
 	}
-	int *newPtr = new int(size - counter);
-	for (int i = 0; i < size - counter; i++) {
+
+	int *newPtr = new int[newSize];
+	for (int i = 0; i < newSize; i++) {
 		newPtr[i] = ptr[i];
 	}
 	delete[] ptr;
 	ptr = newPtr;
-	size = size - counter;
+	size = newSize;
 	return *this;
 }
 
-int & MyArray::operator[](int index)
+
+int &MyArray::operator[](int index)
 {
 	if (index < 0 || index > size) {
 		cerr << "\nError 1: out of range" << endl;
@@ -140,7 +166,7 @@ int MyArray::operator[](int index) const
 	return ptr[index];
 }
 
-std::ostream & operator<<(std::ostream & os, MyArray &arrayForPrint)
+std::ostream &operator<<(std::ostream &os, MyArray &arrayForPrint)
 {
 	for (int i = 0; i < arrayForPrint.size; i++) {
 		os << arrayForPrint.ptr[i] << " ";
@@ -149,7 +175,7 @@ std::ostream & operator<<(std::ostream & os, MyArray &arrayForPrint)
 	return os;
 }
 
-std::istream & operator>>(std::istream & is, MyArray &arrayForInput)
+std::istream &operator>>(std::istream &is, MyArray &arrayForInput)
 {
 	std::cout << "Enter " << arrayForInput.size << " Integers: ";
 	for (int i = 0; i < arrayForInput.size; i++){
