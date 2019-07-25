@@ -35,7 +35,7 @@ public:
 	char &operator[] (int);
 	char operator[] (int) const;
 	int getLenght() const;
-	String operator()(int, int = 0) const;
+	//String operator()(int, int = 0) const;
 private:
 	int lenght;
 	char *sPtr;
