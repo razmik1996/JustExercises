@@ -64,49 +64,68 @@ const String & String::operator+=(const String &other)
 
 bool String::operator!() const
 {
-	return false;
+	return lenght == 0;
 }
 
-bool String::operator==(const String &) const
+bool String::operator==(const String &right) const
 {
-	return false;
+	return !(strcmp(sPtr, right.sPtr));
 }
 
-bool String::operator<(const String &) const
+bool String::operator<(const String &right) const
 {
-	return false;
+	return strcmp(sPtr, right.sPtr) < 0;
 }
 
-char & String::operator[](int)
+char & String::operator[](int sub)
 {
-	// TODO: вставьте здесь оператор return
+	if (sub < 0 || sub > lenght) {
+		cerr << "Error 1: out of range" << endl;
+		exit(1);
+	}
+	return sPtr[sub];
 }
 
-char String::operator[](int) const
+char String::operator[](int sub) const
 {
-	return 0;
+	if (sub < 0 || sub > lenght) {
+		cerr << "Error 1: out of range" << endl;
+		exit(1);
+	}
+	return sPtr[sub];
 }
 
 int String::getLenght() const
 {
-	return 0;
+	return lenght;
 }
 
-String String::operator()(int, int) const
+//String String::operator()(int, int) const
+//{
+//	return String();
+//}
+
+void String::setString(const char *str2)
 {
-	return String();
+	sPtr = new char[lenght + 1];
+
+	if (str2 != 0) {
+		strcpy(sPtr, str2);
+	}
+	else
+		sPtr[0] = '\0';
 }
 
-void String::setString(const char *)
+std::ostream & operator<<(std::ostream & os, const String &string)
 {
+	os << string.sPtr;
+	return os;
 }
 
-std::ostream & operator<<(std::ostream & os, const String &)
+std::istream & operator>>(std::istream & is, String &s)
 {
-	// TODO: вставьте здесь оператор return
-}
-
-std::istream & operator>>(std::istream & is, String &)
-{
-	// TODO: вставьте здесь оператор return
+	char temp[100];
+	is >> setw(100) >> temp;
+	s = temp;
+	return is;
 }
