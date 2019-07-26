@@ -3,15 +3,16 @@
 
 #include "CommissionEmployee.h"
 #include <string>
-class BasePlussCommisionEmployee :public CommissionEmployee
+class BasePlussCommissionEmployee :public CommissionEmployee
 {
 public:
-	BasePlussCommisionEmployee(const string&, const string&, const string&, double = 0.0,
+	BasePlussCommissionEmployee(const string&, const string&, const string&, double = 0.0,
 		double = 0.0, double = 0.0);
 	void setBaseSalary(double);
 	double getBaseSalary() const;
 	double earnings() const;
-	~BasePlussCommisionEmployee();
+	~BasePlussCommissionEmployee();
+	void print() const;
 private:
 	double baseSalary;
 };
