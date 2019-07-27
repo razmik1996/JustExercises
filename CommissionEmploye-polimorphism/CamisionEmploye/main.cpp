@@ -24,11 +24,13 @@ int main()
 	employeePtr = &employee2;
 	employeePtr->print();
 	cout << std::endl;
+	cout << std::endl;
 	BasePlussCommissionEmployee employee3("Malen", "Fstanyan", "096-772-799", 3000, 0.10);
 	cout << std::endl;
 	cout << "BaseEmployeePtr = &baseEmployee: " << std::endl;
 	baseEmployeePtr = &employee3;
 	baseEmployeePtr->print();
+	cout << std::endl;
 	cout << std::endl;
 
 	system("PAUSE");

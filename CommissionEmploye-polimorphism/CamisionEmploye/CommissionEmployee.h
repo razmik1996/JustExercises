@@ -24,8 +24,8 @@ public:
 	void setCommisionRate(double);
 	double getCommisionRate() const;
 
-	double earnings() const;
-	void print() const;
+	virtual double earnings() const;
+	virtual void print() const;
 
 	~CommissionEmployee();
 private:
