@@ -10,9 +10,9 @@ public:
 		double = 0.0, double = 0.0);
 	void setBaseSalary(double);
 	double getBaseSalary() const;
-	double earnings() const;
+	virtual double earnings() const;
 	~BasePlussCommissionEmployee();
-	void print() const;
+	virtual void print() const;
 private:
 	double baseSalary;
 };
